@@ -1,0 +1,20 @@
+version: '3.8'
+
+# 各コンテナの設定
+services:
+  # MySQLコンテナ
+  db:
+    image: mysql:5.7
+    ports:
+      - '33066:3306'
+    # 接続情報
+    environment:
+      MYSQL_DATABASE: unsplash_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: hoge
+      MYSQL_ROOT_PASSWORD: root
+      TZ: 'Asia/Tokyo'
+    volumes:
+      # mysqlの初期設定を反映
+      - ./docker/mysql/conf.d:/etc/mysql/conf.d
+      - ./docker/mysql/log/mysql:/var/log/mysql
