@@ -1,3 +1,8 @@
+// import Fiber from 'fibers'
+// import Sass from 'sass'
+const Fiber = require('fibers')
+const Sass = require('sass')
+
 module.exports = {
   mode: 'universal',
   /*
@@ -53,9 +58,14 @@ module.exports = {
    ** Build configuration
    */
   build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
-  }
+    loaders: {
+      scss: {
+        implementation: Sass,
+        sassOptions: {
+          fiber: Fiber
+        }
+      }
+    }
+  },
+  telemetry: false
 }

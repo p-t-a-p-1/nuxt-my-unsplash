@@ -34,7 +34,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -54,10 +54,11 @@ export default {
   letter-spacing: 1px;
 }
 
+$color: #c53434;
 .subtitle {
   font-weight: 300;
   font-size: 42px;
-  color: #526488;
+  color: $color;
   word-spacing: 5px;
   padding-bottom: 15px;
 }
