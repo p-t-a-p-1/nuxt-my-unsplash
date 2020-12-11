@@ -21,3 +21,13 @@ Nuxt × MySQLで画像を一覧表示
 |    ラベル    |    label    |    VARCHAR(20)    |    NOT NULL   |    NONE    |    -    |
 |    画像URL    |    url    |    VARCHAR(255)    |    NOT NULL    |    NONE    |    -    |
 |    登録日時    |    created_at    |    datetime    |    NOT NULL    |    CURRENT_TIMESTAMP    |    -    |
+
+※ローカルで使うもののためログインなど認証等は実装しない
+
+## 実装の流れ
+
+* コンポーネントごとに静的コーディング
+* 画像URLとラベルを入力 → DBに保存 → 一覧で表示
+* 画像URLについては、下記リポジトリで作成したアップロードツールを用いる
+[https://github.com/p-t-a-p-1/nuxt-image-uploader]https://github.com/p-t-a-p-1/nuxt-image-uploader
+* パスワードは画像ファイル名を入力させる（githubのリポジトリ削除時と同じ流れ）
