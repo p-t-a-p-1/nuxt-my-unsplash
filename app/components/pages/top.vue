@@ -1,5 +1,5 @@
 <template>
-  <main class="main" id="topMain">
+  <main id="topMain" class="main">
     <p>aa</p>
   </main>
 </template>
