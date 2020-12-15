@@ -1,2 +1,2 @@
 .DS_Store
-docker/mysql/log
+docker/mysql/log/mysql/mysqld.log
