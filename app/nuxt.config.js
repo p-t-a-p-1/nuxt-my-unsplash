@@ -32,7 +32,9 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/vue-masonry', ssr: false },
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -65,7 +67,7 @@ module.exports = {
           fiber: Fiber
         }
       }
-    }
+    },
   },
   telemetry: false
 }
