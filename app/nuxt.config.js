@@ -70,5 +70,5 @@ module.exports = {
     },
   },
   telemetry: false,
-  serverMiddleware: ['~/api']
+  // serverMiddleware: ['~/api']
 }

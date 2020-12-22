@@ -7,7 +7,16 @@ const app = express()
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
 
+// POSTデータを取得するための設定
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+const apiRouter = require('./api')
 async function start() {
+
+  // apiルーティング設定の適用
+  app.use('/api', apiRouter)
+
   // Init Nuxt.js
   const nuxt = new Nuxt(config)
 

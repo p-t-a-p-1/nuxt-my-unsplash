@@ -76,7 +76,6 @@ export default {
   },
   methods: {
     async photoSubmit() {
-      console.log(this.photoForm)
       try {
         await this.$axios
           .$post('/api/photo', this.photoForm)
