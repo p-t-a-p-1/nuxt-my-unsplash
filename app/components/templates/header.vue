@@ -18,7 +18,7 @@
     <div v-show="isModal" class="addModal">
       <div class="addModal_wrap">
         <p class="addModal_wrap_title">Add a new photo</p>
-        <form class="addModal_wrap_form form">
+        <form class="addModal_wrap_form form" @submit.prevent="photoSubmit">
           <dl class="form_wrap">
             <div class="form_wrap_content -label">
               <dt>
@@ -26,6 +26,7 @@
               </dt>
               <dd>
                 <input
+                  v-model="photoForm.label"
                   id="label"
                   type="text"
                   name="label"
@@ -39,6 +40,7 @@
               </dt>
               <dd>
                 <input
+                  v-model="photoForm.src"
                   id="url"
                   type="text"
                   name="url"
@@ -47,15 +49,15 @@
               </dd>
             </div>
           </dl>
+          <div class="addModal_wrap_buttonWrap">
+            <button class="modalButton -cancel" @click="isModal = !isModal">
+              Cancel
+            </button>
+            <button type="submit" class="modalButton -submit">
+              Submit
+            </button>
+          </div>
         </form>
-        <div class="addModal_wrap_buttonWrap">
-          <button class="modalButton -cancel" @click="isModal = !isModal">
-            Cancel
-          </button>
-          <button type="submit" class="modalButton -submit">
-            Submit
-          </button>
-        </div>
       </div>
     </div>
   </div>
@@ -65,7 +67,28 @@
 export default {
   data() {
     return {
-      isModal: false
+      isModal: false,
+      photoForm: {
+        label: '',
+        src: ''
+      }
+    }
+  },
+  methods: {
+    async photoSubmit() {
+      console.log(this.photoForm)
+      try {
+        await this.$axios
+          .$post('/api/photo', this.photoForm)
+          .then((response) => {
+            if (response.result) {
+              this.isModal = false
+            }
+          })
+      } catch (error) {
+        console.log(error)
+        console.log('s')
+      }
     }
   }
 }

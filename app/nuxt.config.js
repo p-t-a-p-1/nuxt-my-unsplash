@@ -69,5 +69,6 @@ module.exports = {
       }
     },
   },
-  telemetry: false
+  telemetry: false,
+  serverMiddleware: ['~/api']
 }
