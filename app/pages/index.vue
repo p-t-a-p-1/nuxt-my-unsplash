@@ -9,6 +9,21 @@ export default {
   layout: 'default',
   components: {
     TopPage
+  },
+  async asyncData({ $axios }) {
+    let response = ''
+    let hasContents = false
+    await $axios.$get('/api/photo/list').then((result) => {
+      if (result.photos !== undefined && result.photos.length >= 1) {
+        response = result
+        hasContents = true
+      }
+    })
+    console.log(response)
+    return {
+      response,
+      hasContents
+    }
   }
 }
 </script>

@@ -26,8 +26,8 @@
               </dt>
               <dd>
                 <input
-                  v-model="photoForm.label"
                   id="label"
+                  v-model="photoForm.label"
                   type="text"
                   name="label"
                   placeholder="Suspendisse elit massa"
@@ -40,8 +40,8 @@
               </dt>
               <dd>
                 <input
-                  v-model="photoForm.src"
                   id="url"
+                  v-model="photoForm.src"
                   type="text"
                   name="url"
                   placeholder="https://images.unsplash.com/photo-1584395630827-860eee694d7b?ixlib=r..."

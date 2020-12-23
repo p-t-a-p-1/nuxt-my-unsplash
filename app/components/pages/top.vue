@@ -8,13 +8,13 @@
         class="masonryWrap"
       >
         <div
-          v-for="(item, index) in photoList"
+          v-for="(item, index) in response"
           :key="index"
           v-masonry-tile
           class="masonryWrap_item item"
         >
           <figure class="item_imgWrap">
-            <img :src="item.src" :alt="item.label" />
+            <img :src="item.photo_url" :alt="item.label" />
             <div class="item_imgWrap_mask">
               <figcaption>{{ item.label }}</figcaption>
               <button>delete</button>
@@ -25,6 +25,26 @@
     </no-ssr>
   </main>
 </template>
+
+<script>
+import NoSSR from 'vue-no-ssr'
+export default {
+  components: {
+    'no-ssr': NoSSR
+  },
+  data() {
+    return {
+      hasContents: false
+    }
+  },
+  mounted() {
+    if (this.$redrawVueMasonry === 'function') {
+      console.log('aa')
+      this.$redrawVueMasonry()
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 .main {
@@ -113,47 +133,3 @@
   }
 }
 </style>
-
-<script>
-import NoSSR from 'vue-no-ssr'
-export default {
-  components: {
-    'no-ssr': NoSSR
-  },
-  data() {
-    return {
-      photoList: [
-        {
-          label: 'test1',
-          src: 'https://placehold.jp/150x150.png'
-        },
-        {
-          label: 'test2',
-          src: 'https://placehold.jp/150x300.png'
-        },
-        {
-          label: 'test3',
-          src: 'https://placehold.jp/150x150.png'
-        },
-        {
-          label: 'test4',
-          src: 'https://placehold.jp/150x300.png'
-        },
-        {
-          label: 'test5',
-          src: 'https://placehold.jp/350x150.png'
-        },
-        {
-          label: 'test6',
-          src: 'https://placehold.jp/150x600.png'
-        }
-      ]
-    }
-  },
-  mounted() {
-    if (this.$redrawVueMasonry === 'function') {
-      this.$redrawVueMasonry()
-    }
-  }
-}
-</script>
