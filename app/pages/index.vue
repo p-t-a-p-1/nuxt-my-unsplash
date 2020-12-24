@@ -1,15 +1,9 @@
 <template>
   <main id="topMain" class="main">
-    <div
-      v-masonry="'containerId'"
-      transition-duration="0.3s"
-      item-selector=".item"
-      class="masonryWrap"
-    >
+    <div class="masonryWrap">
       <div
         v-for="(item, index) in response.photos"
         :key="index"
-        v-masonry-tile
         class="masonryWrap_item item"
       >
         <figure class="item_imgWrap">
@@ -36,7 +30,6 @@ export default {
         hasContents = true
       }
     })
-    console.log(response)
     return {
       response,
       hasContents
@@ -44,7 +37,6 @@ export default {
   },
   mounted() {
     if (this.$redrawVueMasonry === 'function') {
-      console.log('aa')
       this.$redrawVueMasonry()
     }
   }
@@ -87,12 +79,28 @@ $color: #c53434;
   width: 100%;
 }
 .masonryWrap {
-  margin: auto;
+  margin: 0 auto;
+  padding: 5px;
   width: 90%;
+  background-color: #fff;
+  column-count: 3;
+  column-gap: 0;
+}
+@media (max-width: 800px) {
+  .masonryWrap {
+    column-count: 2;
+  }
+}
+@media (max-width: 480px) {
+  .masonryWrap {
+    column-count: 1;
+  }
 }
 .item {
-  width: 100%;
-  margin: 0 0 8px 0;
+  padding: 5px;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
   &_imgWrap {
     width: 100%;
     position: relative;
@@ -155,17 +163,6 @@ $color: #c53434;
     .item_imgWrap_mask {
       opacity: 1;
     }
-  }
-}
-@media screen and (min-width: 768px) {
-  .item {
-    width: calc(100% / 3 - 20px);
-    margin: 10px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .item {
-    width: calc(100% / 4 - 20px);
   }
 }
 </style>

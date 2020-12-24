@@ -17,11 +17,8 @@ router.get('/photo/list', (req, res) => {
 })
 
 router.post('/photo', (req, res) => {
-  console.log(req.body)
   const label = req.body.label
   const src = req.body.src
-  console.log(label)
-  console.log(src)
   Photo.create({
     label: label,
     photo_url: src
