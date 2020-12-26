@@ -82,6 +82,8 @@ export default {
           .then((response) => {
             if (response.result) {
               this.isModal = false
+              // リロード
+              location.reload()
             }
           })
       } catch (error) {
