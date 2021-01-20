@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     photo_url: DataTypes.TEXT
   }, {
     sequelize,
-    modelName: 'Photo',
+    modelName: 'Photos',
+    freezeTableName: true,
     underscored: true,
   });
   return Photo;

@@ -10,8 +10,16 @@
           <img :src="item.photo_url" :alt="item.label" />
           <div class="item_imgWrap_mask">
             <figcaption>{{ item.label }}</figcaption>
-            <button>delete</button>
+            <button @click="openModal">delete</button>
           </div>
+          <remove-modal v-if="isModal">
+            <div>モーダルの内容</div>
+            <div>モーダルの内容</div>
+            <div>モーダルの内容</div>
+            <div>モーダルの内容</div>
+            <div>モーダルの内容</div>
+            <button @click="closeModal">閉じる</button>
+          </remove-modal>
         </figure>
       </div>
     </div>
@@ -35,9 +43,23 @@ export default {
       hasContents
     }
   },
+  data() {
+    return {
+      hasContents: false,
+      isModal: false
+    }
+  },
   mounted() {
     if (this.$redrawVueMasonry === 'function') {
       this.$redrawVueMasonry()
+    }
+  },
+  methods: {
+    openModal() {
+      this.isModal = true
+    },
+    closeModal() {
+      this.isModal = false
     }
   }
 }
