@@ -10,16 +10,16 @@
           <img :src="item.photo_url" :alt="item.label" />
           <div class="item_imgWrap_mask">
             <figcaption>{{ item.label }}</figcaption>
-            <button @click="openModal">delete</button>
+            <button @click="openModal(index)">delete</button>
           </div>
-          <remove-modal v-if="isModal">
+          <RemoveModal v-if="isModal && modalNumber == index">
             <div>モーダルの内容</div>
             <div>モーダルの内容</div>
             <div>モーダルの内容</div>
             <div>モーダルの内容</div>
             <div>モーダルの内容</div>
             <button @click="closeModal">閉じる</button>
-          </remove-modal>
+          </RemoveModal>
         </figure>
       </div>
     </div>
@@ -27,7 +27,11 @@
 </template>
 
 <script>
+import RemoveModal from '~/components/organisms/RemoveModal.vue'
 export default {
+  components: {
+    RemoveModal
+  },
   layout: 'default',
   async asyncData({ $axios }) {
     let response = ''
@@ -46,7 +50,8 @@ export default {
   data() {
     return {
       hasContents: false,
-      isModal: false
+      isModal: false,
+      modalNumber: 0
     }
   },
   mounted() {
@@ -55,8 +60,9 @@ export default {
     }
   },
   methods: {
-    openModal() {
+    openModal(index) {
       this.isModal = true
+      this.modalNumber = index
     },
     closeModal() {
       this.isModal = false

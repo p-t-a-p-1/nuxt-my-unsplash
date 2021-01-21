@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'RemoveModal',
+  name: 'RemoveModal'
 }
 </script>
 
