@@ -13,12 +13,14 @@
             <button @click="openModal(index)">delete</button>
           </div>
           <RemoveModal v-if="isModal && modalNumber == index">
-            <div>モーダルの内容</div>
-            <div>モーダルの内容</div>
-            <div>モーダルの内容</div>
-            <div>モーダルの内容</div>
-            <div>モーダルの内容</div>
-            <button @click="closeModal">閉じる</button>
+            <form @submit.prevent="photoSubmit">
+              <button class="modalButton -cancel" @click="closeModal">
+                Cancel
+              </button>
+              <button type="submit" class="modalButton -submit">
+                Submit
+              </button>
+            </form>
           </RemoveModal>
         </figure>
       </div>
@@ -66,6 +68,13 @@ export default {
     },
     closeModal() {
       this.isModal = false
+    },
+    photoSubmit() {
+      try {
+        console.log('sss')
+      } catch (error) {
+        // console.log(error)
+      }
     }
   }
 }

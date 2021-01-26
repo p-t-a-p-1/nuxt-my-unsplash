@@ -183,39 +183,39 @@ export default {
       margin-left: auto;
       display: flex;
       justify-content: flex-end;
-      .modalButton {
-        margin-left: 8px;
-        cursor: pointer;
-        width: 105px;
-        height: 55px;
-        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
-        border-radius: 12px;
-        border: none;
-        font: {
-          family: Noto Sans;
-          style: normal;
-          weight: 500;
-          size: 16px;
-        }
-        line-height: 22px;
-        transition: 0.3s;
-        &.-cancel {
-          color: #bdbdbd;
-          background-color: #fff;
-          &:hover {
-            opacity: 0.7;
-          }
-        }
-        &.-submit {
-          color: #fff;
-          background-color: #3db46d;
-          &:hover {
-            color: #3db46d;
-            background-color: #fff;
-            border: 1px solid #3db46d;
-          }
-        }
-      }
+    }
+  }
+}
+.modalButton {
+  margin-left: 8px;
+  cursor: pointer;
+  width: 105px;
+  height: 55px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border: none;
+  font: {
+    family: Noto Sans;
+    style: normal;
+    weight: 500;
+    size: 16px;
+  }
+  line-height: 22px;
+  transition: 0.3s;
+  &.-cancel {
+    color: #bdbdbd;
+    background-color: #fff;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  &.-submit {
+    color: #fff;
+    background-color: #3db46d;
+    &:hover {
+      color: #3db46d;
+      background-color: #fff;
+      border: 1px solid #3db46d;
     }
   }
 }

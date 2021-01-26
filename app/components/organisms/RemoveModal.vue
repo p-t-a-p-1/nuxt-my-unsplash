@@ -32,10 +32,11 @@ export default {
   }
 
   &__window {
-    height: 70%;
-    width: 70%;
+    width: 620px;
+    height: 276px;
     overflow: hidden;
-    background-color: aquamarine;
+    background-color: #fff;
+    border-radius: 12px;
   }
 
   &__content {
