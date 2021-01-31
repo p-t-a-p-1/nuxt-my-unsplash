@@ -13,7 +13,10 @@
             <button @click="openModal(index)">delete</button>
           </div>
           <RemoveModal v-if="isModal && modalNumber == index">
-            <form @submit.prevent="photoSubmit">
+            <form @submit.prevent="deleteSubmit" class="item_imgWrap_removeModal">
+              <p class="-title">Are you sure?</p>
+              <p class="-key">Password</p>
+              <input type="password" placeholder="**********" class="-password" />
               <button class="modalButton -cancel" @click="closeModal">
                 Cancel
               </button>
@@ -69,7 +72,7 @@ export default {
     closeModal() {
       this.isModal = false
     },
-    photoSubmit() {
+    deleteSubmit() {
       try {
         console.log('sss')
       } catch (error) {
