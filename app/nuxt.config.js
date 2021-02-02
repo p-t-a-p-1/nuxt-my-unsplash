@@ -32,15 +32,13 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    { src: '~/plugins/vue-masonry', ssr: false },
-  ],
+  plugins: [{ src: '~/plugins/vue-masonry', ssr: false }],
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
+    '@nuxtjs/eslint-module'
   ],
   /*
    ** Nuxt.js modules
@@ -67,8 +65,8 @@ module.exports = {
           fiber: Fiber
         }
       }
-    },
+    }
   },
-  telemetry: false,
+  telemetry: false
   // serverMiddleware: ['~/api']
 }

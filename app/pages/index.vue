@@ -12,17 +12,26 @@
             <figcaption>{{ item.label }}</figcaption>
             <button @click="openModal(index)">delete</button>
           </div>
-          <RemoveModal v-if="isModal && modalNumber == index">
-            <form @submit.prevent="deleteSubmit" class="item_imgWrap_removeModal">
+          <RemoveModal
+            v-if="isModal && modalNumber == index"
+            class="item_imgWrap_removeModal"
+          >
+            <form @submit.prevent="deleteSubmit">
               <p class="-title">Are you sure?</p>
               <p class="-key">Password</p>
-              <input type="password" placeholder="**********" class="-password" />
-              <button class="modalButton -cancel" @click="closeModal">
-                Cancel
-              </button>
-              <button type="submit" class="modalButton -submit">
-                Submit
-              </button>
+              <input
+                type="password"
+                placeholder="**********"
+                class="-password"
+              />
+              <div class="-buttonWrap">
+                <button class="modalButton -cancel" @click="closeModal">
+                  Cancel
+                </button>
+                <button type="submit" class="modalButton -submit">
+                  Delete
+                </button>
+              </div>
             </form>
           </RemoveModal>
         </figure>
@@ -195,6 +204,57 @@ $color: #c53434;
         &:hover {
           color: #fff;
           background-color: #eb5757;
+        }
+      }
+    }
+    &_removeModal {
+      .-title {
+        font: {
+          family: Noto Sans;
+          style: normal;
+          weight: 500;
+          size: 24px;
+        }
+        line-height: 33px;
+      }
+      .-key {
+        padding-top: 16px;
+        font: {
+          family: Noto Sans;
+          style: normal;
+          weight: 500;
+          size: 14px;
+        }
+        line-height: 19px;
+      }
+      .-password {
+        margin-top: 10px;
+        padding: 18px;
+        width: 100%;
+        border: 1px solid #4f4f4f;
+        box-sizing: border-box;
+        filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
+        border-radius: 12px;
+        font: {
+          family: Noto Sans;
+          style: normal;
+          weight: 500;
+          size: 14px;
+        }
+        line-height: 19px;
+        color: #bdbdbd;
+      }
+      .-buttonWrap {
+        padding-top: 24px;
+        display: flex;
+        justify-content: flex-end;
+        .-submit {
+          background-color: #eb5757;
+          &:hover {
+            color: #fff;
+            border: none;
+            opacity: 0.8;
+          }
         }
       }
     }

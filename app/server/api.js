@@ -1,7 +1,6 @@
 const bodyParser = require('body-parser')
 const express = require('express')
 const router = express.Router()
-const app = express()
 const models = require('../../models')
 const Photo = models.Photos
 
@@ -9,9 +8,9 @@ const Photo = models.Photos
 router.use(bodyParser.urlencoded({ extended: true }))
 
 router.get('/photo/list', (req, res) => {
-  Photo.findAll().then(photos => {
+  Photo.findAll().then((photos) => {
     return res.json({
-      photos: photos
+      photos
     })
   })
 })
@@ -20,11 +19,11 @@ router.post('/photo', (req, res) => {
   const label = req.body.label
   const src = req.body.src
   Photo.create({
-    label: label,
+    label,
     photo_url: src
-  }).then(photos => {
+  }).then((photos) => {
     return res.json({
-      result: true,
+      result: true
     })
   })
 })
