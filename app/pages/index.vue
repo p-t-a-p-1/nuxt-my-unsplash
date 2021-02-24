@@ -23,6 +23,7 @@
                 type="password"
                 placeholder="**********"
                 class="-password"
+                v-model="deletePass"
               />
               <div class="-buttonWrap">
                 <button class="modalButton -cancel" @click="closeModal">
@@ -65,7 +66,8 @@ export default {
     return {
       hasContents: false,
       isModal: false,
-      modalNumber: 0
+      modalNumber: 0,
+      deletePass: ''
     }
   },
   mounted() {
@@ -82,7 +84,13 @@ export default {
       this.isModal = false
     },
     deleteSubmit() {
+      // envで設定したパスワードと認証
+      if (process.env.PASSWORD !== this.deletePass) {
+        // パスワード違う場合は処理終了
+        return false
+      }
       try {
+        // TODO 削除APIのaxios
         console.log('sss')
       } catch (error) {
         // console.log(error)
