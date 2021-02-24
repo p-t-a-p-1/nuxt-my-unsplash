@@ -15,12 +15,17 @@
         </button>
       </div>
     </header>
-    <add-modal :isModal="isModal"></add-modal>
+    <add-modal :is-modal="isModal"></add-modal>
   </div>
 </template>
 
 <script>
+import AddModal from '~/components/organisms/AddModal.vue'
 export default {
+  name: 'LayoutHeader',
+  components: {
+    AddModal
+  },
   data() {
     return {
       isModal: false

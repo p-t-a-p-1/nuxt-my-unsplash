@@ -1,15 +1,15 @@
 <template>
   <div>
-    <Header />
+    <layout-header></layout-header>
     <Nuxt />
   </div>
 </template>
 
 <script>
-import Header from '@/components/templates/header.vue'
+import LayoutHeader from '~/components/templates/LayoutHeader.vue'
 export default {
   components: {
-    Header
+    LayoutHeader
   }
 }
 </script>
